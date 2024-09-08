@@ -59,4 +59,10 @@ print()
 print(finder1.get_all_words(), '\n')
 print(finder1.find('If'))
 print(finder1.count('if'))
+
+finder3 = WordsFinder('test_file.txt', 'Rudyard Kipling - If.txt')
+print()
+print(finder3.get_all_words(), '\n')
+print(finder3.find('for'))
+print(finder3.count('for'))
 """
