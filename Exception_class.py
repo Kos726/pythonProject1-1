@@ -4,11 +4,12 @@ class ProZero(Exception):
         #F.f_solve(self)
 
 
-class F(ProZero):
-#class F:
+#class F(ProZero):
+class F:
     def __init__(self, a, b):
         self.a = a
         self.b = b
+        self.f_solve()
 
 
     def f_solve(self):
