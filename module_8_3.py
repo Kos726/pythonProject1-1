@@ -3,10 +3,12 @@ class Car:
 		self.model = model
 		self.__vin = __vin
 		self.__numbers = __numbers
-		self.__is_valid_vin(__vin)
-		self.__is_valid_numbers(__numbers)
+		self.__is_valid_vin(__vin) 					# инициализируем метод
+		self.__is_valid_numbers(__numbers)			# инициализируем метод
 
-	def __is_valid_vin(self, __vin):
+# т.к. применение методов следует внутри класса, т.е. они статичны, применяем деркораторы
+	@staticmethod
+	def __is_valid_vin(__vin):
 		if not isinstance(__vin, int):
 			raise IncorrectVinNumber('Некорректный тип vin номера')
 		elif __vin < 1000000 or __vin > 9999999:
@@ -14,7 +16,8 @@ class Car:
 		else:
 			return True
 
-	def __is_valid_numbers(self, __numbers):
+	@staticmethod
+	def __is_valid_numbers(__numbers):
 		if not isinstance(__numbers, str):
 			raise IncorrectCarNumbers('Некорректный тип данных для номеров')
 		elif not len(__numbers) == 6:
