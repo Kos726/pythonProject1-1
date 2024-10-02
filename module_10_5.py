@@ -17,7 +17,7 @@ def read_info(name):
 file_names = [f'./file {number}.txt' for number in range(1, 5)]
 print(file_names)
 
-# '''
+'''
 print(f'\n___Линейный метод___')
 time_start_1 = datetime.now()
 for file in file_names:
