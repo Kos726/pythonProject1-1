@@ -1,4 +1,4 @@
-2024-10-25 19:49:22,262 | WARNING | Неверный тип данных для объекта Runner
+2024-10-25 19:57:29,943 | WARNING | Неверный тип данных для объекта Runner
 Traceback (most recent call last):
   File "C:\Users\user\PycharmProjects\pythonProject1\pythonProject1\tests_12_4.py", line 30, in test_run
     import_runner_ = rt_with_exceptions.Runner(test_name)
@@ -6,7 +6,7 @@ Traceback (most recent call last):
   File "C:\Users\user\PycharmProjects\pythonProject1\pythonProject1\rt_with_exceptions.py", line 6, in __init__
     raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
 TypeError: Имя может быть только строкой, передано list
-2024-10-25 19:49:22,265 | WARNING | Неверная скорость для Runner
+2024-10-25 19:57:29,950 | WARNING | Неверная скорость для Runner
 Traceback (most recent call last):
   File "C:\Users\user\PycharmProjects\pythonProject1\pythonProject1\tests_12_4.py", line 17, in test_walk
     import_runner_ = rt_with_exceptions.Runner(test_name, test_speed)
