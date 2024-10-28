@@ -54,7 +54,7 @@ async def set_weight(message: types.Message, state: FSMContext):
 async def set_gender(message: types.Message, state: FSMContext):
     await state.update_data(weight=message.text)
     date = await state.update_data()
-    await message.answer(f'укажите свой пол (муж, мужской, жен, женский)')  # сообщение в ответ
+    await message.answer(f'укажите свой пол (муж, мужской, жен, женский)')
     print("ожидаем ввод - пол")
     await state.set_state(UserState.gender)
 
@@ -66,17 +66,17 @@ async def set_gender(message: types.Message, state: FSMContext):
 
 @dp.message(UserState.gender)
 async def send_calories(message: types.Message, state: FSMContext):
-    await state.update_data(gender=message.text)
+    await state.update_data(gender=message.text.lower())  # понижаем регистр перед сохранением
     date = await state.update_data()
     print('введенные значения:', date['gender'], date['age'], date['growth'], date['weight'])
     if date["gender"] == "муж" or date["gender"] == "мужской":
         print('калории для муж')
         result_male = 10 * int(date["weight"]) + 6.25 * int(date["growth"]) - 5 * int(date["age"]) + 5
-        await message.answer(f'Ваша рекомендуемая норма калорий: {result_male} )')
+        await message.answer(f'Рекомендуемая норма калорий: {result_male}')
     elif date['gender'] == "жeн" or date['gender'] == "женский":
         print('калории для жен')
         result_femail = 10 * int(date["weight"]) + 6.25 * int(date["growth"]) - 5 * int(date["age"]) - 161
-        await message.answer(f'Ваша рекомендуемая норма калорий: {result_femail} )')
+        await message.answer(f'Рекомендуемая норма калорий: {result_femail}')
     await state.clear()  # вместо finish aiogram v.2
 
 
