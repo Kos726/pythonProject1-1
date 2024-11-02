@@ -31,20 +31,19 @@ def get_all_products(id_product_number=0, local_product=False, name_=list_produc
 
 	# Подсчет общего количества продуктов
 	try:
-		if local_product == False:
+		if local_product is False:
 			cursor.execute("SELECT COUNT(*) FROM Products")
 			count_products = cursor.fetchone()[0]
 			print('Всего Продуктов:', count_products)
 			return count_products
 
-		elif local_product == True:
+		elif local_product is True:
 			cursor.execute("SELECT title, description, price, photo FROM Products WHERE id = ?",
-						   (id_product_number + 1, ))
+						(id_product_number + 1, ))
 			params_product = cursor.fetchone()
 			product = [param for param in params_product]
 			print(product)
 			return product
-
 	except:
 		print('Таблица не создана или перемещена')
 
