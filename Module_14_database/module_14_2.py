@@ -16,10 +16,9 @@ cursor.execute('''
  
 cursor.execute("CREATE INDEX IF NOT EXISTS idx_email ON Users (email)")
  
- 
-"""
+
 cursor.execute("DELETE FROM Users WHERE id = ?", (6, ))
-"""
+
 # Подсчет общего количества юзеров
 cursor.execute("SELECT COUNT(*) FROM Users")
 count_users = cursor.fetchone()[0]
