@@ -9,6 +9,7 @@ from aiogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardBut
 from aiogram.types import FSInputFile
 import asyncio
 from crud_functions import *
+import re
 
 API_TOKEN_ = "..."
 
@@ -226,10 +227,15 @@ async def set_username(message: Message, state: FSMContext):
 @dp.message(RegistrationState.email)
 async def set_email(message: Message, state: FSMContext):
     await state.update_data(email=message.text)
-    date = await state.update_data()
-    await message.answer(f'Введите свой возраст')  # сообщение в ответ
-    print("ожидаем ввод - возраст")
-    await state.set_state(RegistrationState.age)
+    email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if re.match(email_pattern, message.text) is None:
+        await message.answer(f'Вы ввели некоректный почтовый адрес: {message.text}, повторите ввод')
+        await state.set_state(RegistrationState.email)
+    else:
+        date = await state.update_data()
+        await message.answer(f'Введите свой возраст')  # сообщение в ответ
+        print("ожидаем ввод - возраст")
+        await state.set_state(RegistrationState.age)
 
 
 @dp.message(RegistrationState.age)
