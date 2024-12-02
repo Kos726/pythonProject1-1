@@ -4,7 +4,7 @@
     {% if user %}
         <article class="card container fluid">
         <br>
-        <!-- Напишите свой код здесь (Вывод свойств объекта User) -->
+        <!-- Написал свой код здесь (Вывод свойств объекта User) -->
         <h2> ID: {{user.id}} </h2>
         <p>
             <strong> Имя: {{user.username}}, Возраст: {{user.age}}  </strong>
@@ -16,7 +16,7 @@
                 <br>
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <!-- Напишите свой код здесь (перебор пользователей) -->
+                        <!-- Написал свой код здесь (перебор пользователей) -->
                         {% for user in users %}
                             <li class="list-group-item"> {{user.id}}
                                 <a href="/user/{{user.id}}"> {{user.username}} </a> </li>

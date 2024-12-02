@@ -19,8 +19,8 @@ class User(BaseModel):
     age: int
 
 
-"""
 # иммитация базы данных
+"""
 t1 = User(id=1, username="UrbanUser", age=24)
 users.append(t1)
 t2 = User(id=2, username="UrbanTest", age=36)
