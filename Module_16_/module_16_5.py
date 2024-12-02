@@ -27,7 +27,6 @@ t2 = User(id=2, username="UrbanTest", age=36)
 users.append(t2)
 t3 = User(id=3, username="Copybara", age=60)
 users.append(t3)
-
 """
 
 
